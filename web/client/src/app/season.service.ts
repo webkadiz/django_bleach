@@ -1,25 +1,24 @@
 import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
 import { Injectable } from '@angular/core';
+
+export interface Season {
+  id: number;
+  number: number;
+  release_data: string;
+}
 
 @Injectable({
   providedIn: 'root',
 })
 export class SeasonService {
-  seasons = [
-    {
-      number: 1
-    },
-    {
-      number: 2
-    },
-    {
-      number: 3
-    },
-  ];
+  seasons: Season[] = [];
 
   constructor(private http: HttpClient) {}
-  
+
   getSeasons() {
-    return this.seasons
+    if (this.seasons.length) return of<Season[]>(this.seasons)
+
+    return this.http.get<Season[]>('http://localhost:8000/api/season/list');
   }
 }

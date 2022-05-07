@@ -16,6 +16,7 @@ class Serie(models.Model):
     release_date = models.DateField(unique=True)
     duration = models.TimeField()
     description = models.TextField()
+    preview = models.CharField(max_length=300, null=True)
 
 
 class Film(models.Model):

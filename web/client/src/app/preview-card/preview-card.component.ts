@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PreviewCardComponent implements OnInit {
 
-  @Input() img!: string;
+  @Input() preview!: string;
   @Input() title!: string;
 
   constructor() { }
