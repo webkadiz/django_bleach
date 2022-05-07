@@ -1,3 +1,5 @@
+<h1>Сезоны</h1>
+<hr />
 <tabset>
   <tab
     [heading]="season.number + ' сезон'"
@@ -8,6 +10,7 @@
     <div *ngIf="isCurrentSeason(season.number)" class="preview-card-container">
       <app-preview-card
         *ngFor="let serie of currentSeries"
+        [link]="['/serie', serie.id]"
         [preview]="serie.preview"
         [title]="serie.name"
       >

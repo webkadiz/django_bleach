@@ -11,9 +11,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PreviewCardComponent } from './preview-card/preview-card.component';
 import { FilmsComponent } from './films/films.component';
+import { SerieComponent } from './serie/serie.component';
+import { CommentWidgetComponent } from './comment-widget/comment-widget.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, HomeComponent, PreviewCardComponent, FilmsComponent],
+  declarations: [AppComponent, MenuComponent, HomeComponent, PreviewCardComponent, FilmsComponent, SerieComponent, CommentWidgetComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -21,6 +23,7 @@ import { FilmsComponent } from './films/films.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'films', component: FilmsComponent },
+      { path: 'serie/:serieId', component: SerieComponent },
     ]),
     BrowserAnimationsModule,
     TabsModule,

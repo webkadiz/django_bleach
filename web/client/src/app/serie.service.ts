@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
 
 export interface Serie {
+  id: number;
   number: number;
   name: string;
   release_data: string;

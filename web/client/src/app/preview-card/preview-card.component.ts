@@ -7,6 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PreviewCardComponent implements OnInit {
 
+  @Input() link!: (number | string)[];
   @Input() preview!: string;
   @Input() title!: string;
 
