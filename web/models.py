@@ -24,6 +24,7 @@ class Film(models.Model):
     release_date = models.DateField(unique=True)
     description = models.TextField()
     duration = models.TimeField()
+    preview = models.CharField(max_length=300, null=True)
 
 
 class Character(models.Model):

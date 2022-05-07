@@ -19,3 +19,15 @@ def serie_to_dict(serie):
     dicti['preview'] = serie.preview
 
     return dicti
+
+
+def film_to_dict(film):
+    dicti = {}
+    dicti['id'] = film.id
+    dicti['name'] = film.name
+    dicti['release_date'] = film.release_date
+    dicti['description'] = film.description
+    dicti['duration'] = film.duration
+    dicti['preview'] = film.preview
+
+    return dicti

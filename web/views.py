@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
-from .serializers import season_to_dict, serie_to_dict
+from .serializers import season_to_dict, serie_to_dict, film_to_dict
 from .models import Season, Serie, Character, Comment, Film
 
 # Create your views here.
@@ -42,3 +42,14 @@ def serie_by_id(req, pk):
         return JsonResponse(s_serie, safe=False)
     except:
         return JsonResponse({})
+
+
+def film_list(req):
+    res = []
+    films = Film.objects.all()
+
+    for film in films:
+        s_film = film_to_dict(film)
+        res.append(s_film)
+
+    return JsonResponse(res, safe=False)

@@ -1,0 +1,10 @@
+<h1>Фильмы</h1>
+<hr size="2"/>
+<div class="preview-card-container">
+  <app-preview-card
+    *ngFor="let film of films"
+    [preview]="film.preview"
+    [title]="film.name"
+  >
+  </app-preview-card>
+</div>

@@ -10,16 +10,17 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { PreviewCardComponent } from './preview-card/preview-card.component';
+import { FilmsComponent } from './films/films.component';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, HomeComponent, PreviewCardComponent],
+  declarations: [AppComponent, MenuComponent, HomeComponent, PreviewCardComponent, FilmsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
-      // { path: 'products/:productId', component: ProductDetailsComponent },
+      { path: 'films', component: FilmsComponent },
     ]),
     BrowserAnimationsModule,
     TabsModule,

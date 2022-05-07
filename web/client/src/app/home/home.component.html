@@ -1,19 +1,17 @@
-<div class="container">
-  <tabset>
-    <tab
-      [heading]="season.number + ' сезон'"
-      *ngFor="let season of seasons"
-      (selectTab)="onSelectTab($event, season.number)"
-      [id]="season.id.toString()"
-    >
-      <div *ngIf="isCurrentSeason(season.number)" class="preview-card-container">
-        <app-preview-card
-          *ngFor="let serie of currentSeries"
-          [preview]="serie.preview"
-          [title]="serie.name"
-        >
-        </app-preview-card>
-      </div>
-    </tab>
-  </tabset>
-</div>
+<tabset>
+  <tab
+    [heading]="season.number + ' сезон'"
+    *ngFor="let season of seasons"
+    (selectTab)="onSelectTab($event, season.number)"
+    [id]="season.id.toString()"
+  >
+    <div *ngIf="isCurrentSeason(season.number)" class="preview-card-container">
+      <app-preview-card
+        *ngFor="let serie of currentSeries"
+        [preview]="serie.preview"
+        [title]="serie.name"
+      >
+      </app-preview-card>
+    </div>
+  </tab>
+</tabset>
