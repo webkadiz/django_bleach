@@ -9,6 +9,7 @@ export interface Film {
   description: string;
   duration: string;
   preview: string;
+  player: string;
 }
 
 @Injectable({
@@ -23,5 +24,11 @@ export class FilmService {
     if (this.films.length) return of<Film[]>(this.films)
 
     return this.http.get<Film[]>('http://localhost:8000/api/film/list');
+  }
+
+  getFilmById(filmId: number) {
+    return this.http.get<Film>(
+      `http://localhost:8000/api/film/${filmId}`
+    );
   }
 }

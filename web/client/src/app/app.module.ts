@@ -14,6 +14,7 @@ import { FilmsComponent } from './films/films.component';
 import { SerieComponent } from './serie/serie.component';
 import { CommentWidgetComponent } from './comment-widget/comment-widget.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FilmComponent } from './film/film.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     FilmsComponent,
     SerieComponent,
     CommentWidgetComponent,
+    FilmComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,6 +35,7 @@ import { ReactiveFormsModule } from '@angular/forms';
       { path: '', component: HomeComponent },
       { path: 'films', component: FilmsComponent },
       { path: 'serie/:serieId', component: SerieComponent },
+      { path: 'film/:filmId', component: FilmComponent },
     ]),
     BrowserAnimationsModule,
     TabsModule,

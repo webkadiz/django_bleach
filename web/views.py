@@ -105,3 +105,13 @@ def get_serie(req, serie_id):
         return JsonResponse(s_serie)
     except:
         return JsonResponse({})
+
+
+def get_film(req, film_id):
+    try:
+        film = Film.objects.get(id=film_id)
+        s_film = film_to_dict(film)
+
+        return JsonResponse(s_film)
+    except:
+        return JsonResponse({})

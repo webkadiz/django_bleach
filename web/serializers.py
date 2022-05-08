@@ -31,6 +31,7 @@ def film_to_dict(film):
     dicti['description'] = film.description
     dicti['duration'] = film.duration
     dicti['preview'] = film.preview
+    dicti['player'] = film.player
 
     return dicti
 

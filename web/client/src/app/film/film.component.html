@@ -1,0 +1,12 @@
+<div *ngIf="film">
+  <h1>{{ film.name }}</h1>
+  <hr />
+  <iframe
+    [src]="getPlayer()"
+    frameborder="0"
+    class="film-player"
+  ></iframe>
+  <app-comment-widget [filmId]="film.id"></app-comment-widget>
+</div>
+<div *ngIf="!film && filmLoad">Такой фильм не существует</div>
+

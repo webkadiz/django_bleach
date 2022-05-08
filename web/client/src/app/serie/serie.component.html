@@ -1,6 +1,7 @@
 <div *ngIf="serie">
+  <h1>{{ serie.name }}</h1>
+  <hr />
   <iframe
-    *ngIf="serie"
     [src]="getPlayer()"
     frameborder="0"
     class="serie-player"

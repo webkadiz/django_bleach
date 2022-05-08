@@ -5,6 +5,7 @@
     *ngFor="let film of films"
     [preview]="film.preview"
     [title]="film.name"
+    [link]="['/film', film.id]"
   >
   </app-preview-card>
 </div>
