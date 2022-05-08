@@ -1,7 +1,7 @@
 from django.shortcuts import render
 import json
 from django.http import HttpResponse, JsonResponse
-from .serializers import season_to_dict, serie_to_dict, film_to_dict, comment_to_dict
+from .serializers import season_to_dict, serie_to_dict, film_to_dict, comment_to_dict, character_to_dict
 from .models import Season, Serie, Character, Comment, Film
 
 # Create your views here.
@@ -80,7 +80,6 @@ def comment_create(req):
 
 def comment_list(req):
     try:
-        print(req.body)
         body = json.loads(req.body)
         res = []
 
@@ -90,8 +89,6 @@ def comment_list(req):
             s_comment = comment_to_dict(comment)
             res.append(s_comment)
 
-        print(comments, 'list')
-        print(res)
         return JsonResponse(res, safe=False)
     except:
         return JsonResponse([], safe=False)
@@ -115,3 +112,14 @@ def get_film(req, film_id):
         return JsonResponse(s_film)
     except:
         return JsonResponse({})
+
+
+def get_characters_by_serie(req, serie_id):
+    res = []
+    characters = Character.objects.filter(appear_serie_id=serie_id)
+
+    for character in characters:
+        s_character = character_to_dict(character)
+        res.append(s_character)
+
+    return JsonResponse(res, safe=False)

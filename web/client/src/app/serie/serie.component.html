@@ -1,11 +1,18 @@
 <div *ngIf="serie">
-  <h1>{{ serie.name }}</h1>
+  <h1>{{ serie.name }} <span class="release-date">{{serie.release_date}}</span></h1>
   <hr />
   <iframe
     [src]="getPlayer()"
     frameborder="0"
     class="serie-player"
   ></iframe>
+  <div class="character-container mt-3" *ngIf="characters.length">
+      <h1>Персонажи появившиеся в серии</h1>
+      <hr />
+      <div class="character-item" *ngFor="let character of characters">
+          {{character.name}}
+      </div>
+  </div>
   <app-comment-widget [serieId]="serie.id"></app-comment-widget>
 </div>
 <div *ngIf="!serie && serieLoad">Такой серии не существует</div>

@@ -43,3 +43,11 @@ def comment_to_dict(comment):
     dicti['content'] = comment.content
 
     return dicti
+
+
+def character_to_dict(character):
+    dicti = {}
+    dicti['id'] = character.id
+    dicti['name'] = character.name
+
+    return dicti

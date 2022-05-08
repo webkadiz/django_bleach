@@ -1,5 +1,5 @@
 <div *ngIf="film">
-  <h1>{{ film.name }}</h1>
+  <h1>{{ film.name }} <span class="release-date">{{film.release_date}}</span></h1>
   <hr />
   <iframe
     [src]="getPlayer()"

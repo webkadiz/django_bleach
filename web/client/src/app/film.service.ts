@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 export interface Film {
   id: number;
   name: string;
-  release_data: string;
+  release_date: string;
   description: string;
   duration: string;
   preview: string;
