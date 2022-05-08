@@ -17,6 +17,7 @@ class Serie(models.Model):
     duration = models.TimeField()
     description = models.TextField()
     preview = models.CharField(max_length=300, null=True)
+    player = models.CharField(max_length=100, null=True)
 
 
 class Film(models.Model):
@@ -25,6 +26,7 @@ class Film(models.Model):
     description = models.TextField()
     duration = models.TimeField()
     preview = models.CharField(max_length=300, null=True)
+    player = models.CharField(max_length=100, null=True)
 
 
 class Character(models.Model):

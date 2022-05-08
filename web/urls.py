@@ -11,4 +11,5 @@ urlpatterns = [
     path('api/film/list', views.film_list, name='film list'),
     path('api/comment/create', views.comment_create, name='comment create'),
     path('api/comment/list', views.comment_list, name='comment list'),
+    path('api/serie/<int:serie_id>', views.get_serie, name='get serie'),
 ]

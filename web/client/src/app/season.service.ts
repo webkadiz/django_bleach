@@ -5,7 +5,8 @@ import { Injectable } from '@angular/core';
 export interface Season {
   id: number;
   number: number;
-  release_data: string;
+  release_date: string;
+  description: string;
 }
 
 @Injectable({

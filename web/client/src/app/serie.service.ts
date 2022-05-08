@@ -4,10 +4,12 @@ import { of } from 'rxjs';
 
 export interface Serie {
   id: number;
+  season_id: number
   number: number;
   name: string;
   release_data: string;
   preview: string;
+  player: string;
 }
 
 interface SeriesBySeason {
@@ -27,6 +29,12 @@ export class SerieService {
 
     return this.http.get<Serie[]>(
       `http://localhost:8000/api/season/${seasonId}/serie/list`
+    );
+  }
+
+  getSerieById(serieId: number) {
+    return this.http.get<Serie>(
+      `http://localhost:8000/api/serie/${serieId}`
     );
   }
 }

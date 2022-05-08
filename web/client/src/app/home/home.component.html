@@ -7,14 +7,18 @@
     (selectTab)="onSelectTab($event, season.number)"
     [id]="season.id.toString()"
   >
-    <div *ngIf="isCurrentSeason(season.number)" class="preview-card-container">
-      <app-preview-card
-        *ngFor="let serie of currentSeries"
-        [link]="['/serie', serie.id]"
-        [preview]="serie.preview"
-        [title]="serie.name"
-      >
-      </app-preview-card>
+    <div *ngIf="isCurrentSeason(season.number)">
+      <div class="season-release">Дата выхода: {{season.release_date}}</div>
+      <div class="season-desc">Название: {{season.description}}</div>
+      <div class="preview-card-container">
+        <app-preview-card
+          *ngFor="let serie of currentSeries"
+          [link]="['/serie', serie.id]"
+          [preview]="serie.preview"
+          [title]="serie.name"
+        >
+        </app-preview-card>
+      </div>
     </div>
     <app-comment-widget
       *ngIf="isCurrentSeason(season.number)"

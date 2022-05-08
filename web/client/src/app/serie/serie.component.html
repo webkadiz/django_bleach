@@ -1,1 +1,10 @@
-<p>serie works!</p>
+<div *ngIf="serie">
+  <iframe
+    *ngIf="serie"
+    [src]="getPlayer()"
+    frameborder="0"
+    class="serie-player"
+  ></iframe>
+  <app-comment-widget [serieId]="serie.id"></app-comment-widget>
+</div>
+<div *ngIf="!serie && serieLoad">Такой серии не существует</div>

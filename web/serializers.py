@@ -11,12 +11,14 @@ def season_to_dict(season):
 def serie_to_dict(serie):
     dicti = {}
     dicti['id'] = serie.id
+    dicti['season_id'] = serie.season_id
     dicti['number'] = serie.number
     dicti['name'] = serie.name
     dicti['release_date'] = serie.release_date
     dicti['description'] = serie.description
     dicti['duration'] = serie.duration
     dicti['preview'] = serie.preview
+    dicti['player'] = serie.player
 
     return dicti
 

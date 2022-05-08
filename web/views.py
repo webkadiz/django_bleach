@@ -77,6 +77,7 @@ def comment_create(req):
     except:
         return JsonResponse({'error': True})
 
+
 def comment_list(req):
     try:
         print(req.body)
@@ -95,3 +96,12 @@ def comment_list(req):
     except:
         return JsonResponse([], safe=False)
 
+
+def get_serie(req, serie_id):
+    try:
+        serie = Serie.objects.get(id=serie_id)
+        s_serie = serie_to_dict(serie)
+
+        return JsonResponse(s_serie)
+    except:
+        return JsonResponse({})
