@@ -13,9 +13,18 @@ import { PreviewCardComponent } from './preview-card/preview-card.component';
 import { FilmsComponent } from './films/films.component';
 import { SerieComponent } from './serie/serie.component';
 import { CommentWidgetComponent } from './comment-widget/comment-widget.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, MenuComponent, HomeComponent, PreviewCardComponent, FilmsComponent, SerieComponent, CommentWidgetComponent],
+  declarations: [
+    AppComponent,
+    MenuComponent,
+    HomeComponent,
+    PreviewCardComponent,
+    FilmsComponent,
+    SerieComponent,
+    CommentWidgetComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +36,7 @@ import { CommentWidgetComponent } from './comment-widget/comment-widget.componen
     ]),
     BrowserAnimationsModule,
     TabsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

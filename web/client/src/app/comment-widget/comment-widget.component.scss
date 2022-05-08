@@ -1,0 +1,11 @@
+.comment-container {
+    margin-top: 20px;
+}
+
+.comment-item {
+    margin-bottom: 20px;
+
+    &__name {
+        font-weight: bold;
+    }
+}

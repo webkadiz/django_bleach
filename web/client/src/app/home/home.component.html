@@ -16,5 +16,9 @@
       >
       </app-preview-card>
     </div>
+    <app-comment-widget
+      *ngIf="isCurrentSeason(season.number)"
+      [seasonId]="season.id"
+    ></app-comment-widget>
   </tab>
 </tabset>

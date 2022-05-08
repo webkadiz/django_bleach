@@ -31,3 +31,12 @@ def film_to_dict(film):
     dicti['preview'] = film.preview
 
     return dicti
+
+
+def comment_to_dict(comment):
+    dicti = {}
+    dicti['id'] = comment.id
+    dicti['name'] = comment.name
+    dicti['content'] = comment.content
+
+    return dicti

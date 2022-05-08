@@ -1,1 +1,36 @@
-<p>comment-widget works!</p>
+<div class="comment-container">
+  <h1>Оставить комментарий</h1>
+  <hr />
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit()">
+    <label>Имя:</label>
+    <input
+      type="text"
+      class="form-control {{ validInputClass('name') }}"
+      formControlName="name"
+    />
+    <div class="{{ validFeedbackClass('name') }}">
+      Поле не должно быть пустым
+    </div>
+    <label class="mt-4">Комментарий:</label>
+    <textarea
+      cols="30"
+      rows="10"
+      class="form-control {{ validInputClass('content') }}"
+      formControlName="content"
+    ></textarea>
+    <div class="{{ validFeedbackClass('content') }}">
+      Поле не должно быть пустым
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Отправить</button>
+  </form>
+  <h1 class="mt-3">
+    {{ getWidgetTitle() }}
+  </h1>
+  <hr />
+  <div class="comment-list">
+    <div *ngFor="let comment of comments" class="comment-item">
+      <div class="comment-item__name">{{ comment.name }}</div>
+      <div class="comment-item__content">{{ comment.content }}</div>
+    </div>
+  </div>
+</div>

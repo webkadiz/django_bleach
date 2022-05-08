@@ -1,6 +1,7 @@
 from django.shortcuts import render
+import json
 from django.http import HttpResponse, JsonResponse
-from .serializers import season_to_dict, serie_to_dict, film_to_dict
+from .serializers import season_to_dict, serie_to_dict, film_to_dict, comment_to_dict
 from .models import Season, Serie, Character, Comment, Film
 
 # Create your views here.
@@ -53,3 +54,44 @@ def film_list(req):
         res.append(s_film)
 
     return JsonResponse(res, safe=False)
+
+
+def comment_create(req):
+    if req.method != 'POST':
+        return HttpResponse('')
+
+    body = json.loads(req.body)
+
+    comment = Comment(
+        season_id=body['seasonId'],
+        film_id=body['filmId'],
+        serie_id=body['serieId'],
+        name=body['name'],
+        content=body['content']
+    )
+
+    try:
+        comment.save()
+
+        return JsonResponse({'success': True})
+    except:
+        return JsonResponse({'error': True})
+
+def comment_list(req):
+    try:
+        print(req.body)
+        body = json.loads(req.body)
+        res = []
+
+        comments = Comment.objects.filter(season_id=body['seasonId'])
+
+        for comment in comments:
+            s_comment = comment_to_dict(comment)
+            res.append(s_comment)
+
+        print(comments, 'list')
+        print(res)
+        return JsonResponse(res, safe=False)
+    except:
+        return JsonResponse([], safe=False)
+

@@ -36,7 +36,11 @@ class Character(models.Model):
 
 
 class Comment(models.Model):
-    serie = models.ForeignKey(Serie, on_delete=models.CASCADE, null=True)
-    season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True)
-    film = models.ForeignKey(Film, on_delete=models.CASCADE, null=True)
+    serie = models.ForeignKey(
+        Serie, on_delete=models.CASCADE, null=True, blank=True)
+    season = models.ForeignKey(
+        Season, on_delete=models.CASCADE, null=True, blank=True)
+    film = models.ForeignKey(
+        Film, on_delete=models.CASCADE, null=True, blank=True)
     content = models.TextField()
+    name = models.CharField(max_length=50)
