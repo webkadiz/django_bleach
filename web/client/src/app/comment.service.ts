@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface Comment {
+  id: number;
   name: string;
   content: string;
   seasonId: number | null;
@@ -27,5 +28,10 @@ export class CommentService {
 
   sendComment(comment: Comment) {
     return this.http.post('http://localhost:8000/api/comment/create', comment)
+  }
+
+  editComment(comment: Comment) {
+    console.log(comment)
+    return this.http.post('http://localhost:8000/api/comment/edit', comment)
   }
 }

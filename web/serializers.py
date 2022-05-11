@@ -39,6 +39,9 @@ def film_to_dict(film):
 def comment_to_dict(comment):
     dicti = {}
     dicti['id'] = comment.id
+    dicti['season_id'] = comment.season_id
+    dicti['serie_id'] = comment.serie_id
+    dicti['film_id'] = comment.film_id
     dicti['name'] = comment.name
     dicti['content'] = comment.content
 

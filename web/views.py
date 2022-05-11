@@ -83,7 +83,14 @@ def comment_list(req):
         body = json.loads(req.body)
         res = []
 
-        comments = Comment.objects.filter(season_id=body['seasonId'])
+        if body['seasonId']:
+            comments = Comment.objects.filter(season_id=body['seasonId'])
+        elif body['serieId']:
+            comments = Comment.objects.filter(serie_id=body['serieId'])
+        elif body['filmId']:
+            comments = Comment.objects.filter(film_id=body['filmId'])
+        else:
+            comments = []
 
         for comment in comments:
             s_comment = comment_to_dict(comment)
@@ -134,3 +141,21 @@ def character_list(req):
         res.append(s_character)
 
     return JsonResponse(res, safe=False)
+
+
+def comment_edit(req):
+    if req.method != 'POST':
+        return HttpResponse('')
+
+    body = json.loads(req.body)
+    print(body)
+
+    comment = Comment.objects.get(id=body['id'])
+    comment.name = body['name']
+
+    try:
+        comment.save()
+
+        return JsonResponse({'success': True})
+    except:
+        return JsonResponse({'error': True})

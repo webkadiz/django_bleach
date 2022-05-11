@@ -12,6 +12,7 @@ urlpatterns = [
     path('api/character/list', views.character_list, name='character list'),
     path('api/comment/create', views.comment_create, name='comment create'),
     path('api/comment/list', views.comment_list, name='comment list'),
+    path('api/comment/edit', views.comment_edit, name='comment edit'),
     path('api/serie/<int:serie_id>', views.get_serie, name='get serie'),
     path('api/film/<int:film_id>', views.get_film, name='get film'),
     path('api/serie/<int:serie_id>/character/list',

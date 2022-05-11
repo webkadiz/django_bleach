@@ -19,6 +19,9 @@ export class CommentWidgetComponent implements OnInit {
 
   comments: Comment[] = [];
 
+  editableComment: number = 0;
+  newCommentName = new FormControl('')
+
   constructor(private commentService: CommentService) {}
 
   ngOnInit(): void {
@@ -76,5 +79,23 @@ export class CommentWidgetComponent implements OnInit {
             this.comments = comments;
           });
       });
+  }
+
+  editComment(comment: Comment) {
+    this.editableComment = comment.id
+    this.newCommentName.setValue(comment.name)
+  }
+
+  saveComment(comment: Comment) {
+    this.commentService.editComment({
+        id: comment.id,
+        name: comment.name,
+        content: comment.content,
+        seasonId: this.seasonId,
+        serieId: this.serieId,
+        filmId: this.filmId,
+    }).subscribe(res => res)
+    comment.name = this.newCommentName.value
+    this.editableComment = 0
   }
 }

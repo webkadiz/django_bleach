@@ -4,8 +4,24 @@
 
 .comment-item {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 
     &__name {
         font-weight: bold;
+    }
+}
+
+.edit-icon {
+    display: inline;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.edit-container {
+    display: flex;
+
+    button {
+        margin-left: 20px;
     }
 }
