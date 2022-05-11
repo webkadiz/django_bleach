@@ -1,0 +1,12 @@
+<label>Поиск:</label>
+<input class="form-control mb-4" [formControl]="searchControl" />
+<div *ngFor="let character of searchedCharacters">
+  <div>{{ character.name }}</div>
+  <div>
+    Серия появления:
+    <a [routerLink]="['/serie', character.appear_serie_id]">{{
+      character.appear_serie_id
+    }}</a>
+  </div>
+  <hr />
+</div>

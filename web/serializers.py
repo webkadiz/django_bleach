@@ -49,5 +49,6 @@ def character_to_dict(character):
     dicti = {}
     dicti['id'] = character.id
     dicti['name'] = character.name
+    dicti['appear_serie_id'] = character.appear_serie_id
 
     return dicti

@@ -123,3 +123,14 @@ def get_characters_by_serie(req, serie_id):
         res.append(s_character)
 
     return JsonResponse(res, safe=False)
+
+
+def character_list(req):
+    res = []
+    characters = Character.objects.all()
+
+    for character in characters:
+        s_character = character_to_dict(character)
+        res.append(s_character)
+
+    return JsonResponse(res, safe=False)

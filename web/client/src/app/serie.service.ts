@@ -14,6 +14,7 @@ export interface Serie {
 
 export interface Character {
   name: string;
+  appear_serie_id: number;
 }
 
 interface SeriesBySeason {

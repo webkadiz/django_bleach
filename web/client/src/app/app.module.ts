@@ -15,6 +15,7 @@ import { SerieComponent } from './serie/serie.component';
 import { CommentWidgetComponent } from './comment-widget/comment-widget.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilmComponent } from './film/film.component';
+import { CharactersComponent } from './characters/characters.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { FilmComponent } from './film/film.component';
     SerieComponent,
     CommentWidgetComponent,
     FilmComponent,
+    CharactersComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { FilmComponent } from './film/film.component';
     RouterModule.forRoot([
       { path: '', component: HomeComponent },
       { path: 'films', component: FilmsComponent },
+      { path: 'characters', component: CharactersComponent },
       { path: 'serie/:serieId', component: SerieComponent },
       { path: 'film/:filmId', component: FilmComponent },
     ]),
